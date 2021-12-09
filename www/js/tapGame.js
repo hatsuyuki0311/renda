@@ -7,9 +7,7 @@
 //
 
 /******************************************************/
-    // APIキーの設定
-    var APPLICATION_KEY ="YOUR_NCMB_APPLICATION_KEY";
-    var CLIENT_KEY ="YOUR_NCMB_CLIENT_KEY";
+    
 /******************************************************/
 
 // mBaaSの初期化
@@ -39,7 +37,20 @@ function startGame() {
 // 【mBaaS】データの保存
 function saveScore (name, score) {
     // **********【問題１】名前とスコアを保存しよう！**********
-    
+    var GameScore=ncmb.DataStore("GameScore");
+    var gameScore=new GameScore;
+    gameScore.set("name",name);
+    gameScore.set("score",score);
+
+    gameScore.save()
+    .then(function(m) {
+$("#message").html("New object created with objectId: " +
+testClass.objectId);
+})
+.catch(function(err){
+$("#message").html("Failed to create new object, with error code: " +
+JSON.stringify(err));
+})
     
     
     
