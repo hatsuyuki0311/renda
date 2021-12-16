@@ -16,10 +16,12 @@ function toRanking() {
 
 // 【mBaaS】保存したデータの検索と取得
 function checkRankingb() {
-  $("#ranking-page test").html("あああああ");
+  /*$("#ranking-page test").html("あああああ");
   // **********【問題２】ランキングを表示しよう！**********
   var highScore = ncmb.DataStore("GameScore");
-    highScore.fetchAll()
+    highScore//.order("score",true)
+    //.limit(5)
+    .fetchAll()
     .then(function (results) {
       var data=results.get("score");
       $("#message").html("New object created with objectId: " +
@@ -28,7 +30,7 @@ function checkRankingb() {
     .catch(function (err) {
       $("#message").html("Failed to create new object, with error code: " +
         JSON.stringify(err));
-    })
+    })*/
 
 
 
