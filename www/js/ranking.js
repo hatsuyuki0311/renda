@@ -6,11 +6,11 @@
 //  Copyright 2017 FUJITSU CLOUD TECHNOLOGIES LIMITED All Rights Reserved.
 //
 
-// 「ランキングを見る」ボタン押下時の処理
+// 「記録を見る」ボタン押下時の処理
 function toRanking() {
   // データ取得
   checkRanking();
-  // ランキング画面へ遷移
+  // 記録画面へ遷移
   window.location.href = "#ranking-page";
 }
 
@@ -48,7 +48,7 @@ function checkRankingb() {
 function checkRanking() {
 var highScore = ncmb.DataStore("GameScore");
 // scoreの降順でデータ5件を取得するように設定する
-highScore.order("score", true)
+highScore.order("createDate", true)
          .limit(10)
          .fetchAll()
          .then(function(results){
@@ -68,10 +68,10 @@ function setData(array) {
   for (i = 0; i < array.length; i++) {
     // 名前の設定
     var name = table.rows[i].cells[1];
-    name.innerHTML = array[i].name + "さん";
+    name.innerHTML = array[i].name + "";
     // スコアの設定
-    var score = table.rows[i].cells[2];
-    score.innerHTML = array[i].score + "連打";
+    var updateDate = table.rows[i].cells[2];
+    updateDate.innerHTML = array[i].updateDate + " ";
   }
 }
 

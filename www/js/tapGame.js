@@ -13,13 +13,13 @@
 // mBaaSの初期化
 var ncmb = new NCMB(this.APPLICATION_KEY, this.CLIENT_KEY);
 // タイマー設定
-var countTimer = 13;
+//var countTimer = 13;
 // タップ回数カウンター
-var counter = 0;
+//var counter = 0;
 // 「tapFlag」的のタップ可否設定
-var tapFlag = false;
+//var tapFlag = false;
 
-// 「Start」ボタン押下時の処理
+/*// 「Start」ボタン押下時の処理
 function startGame() {
   // ボタンの無効化
   document.gameForm.start.disabled = true;
@@ -32,7 +32,7 @@ function startGame() {
   this.countTimer = 13;
   // タイマーを起動
   countTime(countTimer);
-}
+}*/
 
 // 【mBaaS】データの保存
 function saveScore(name, score) {
@@ -53,10 +53,7 @@ function saveScore(name, score) {
     })
 
 
-  /*var ScoreView= ncmb.DataStore("ScoreView");
-  var scoreview = new ScoreView;
-  scoreview.set(key,value);*/
-
+  
 
 
 
@@ -68,7 +65,7 @@ function saveScore(name, score) {
 }
 
 // タイマー
-function countTime(time) {
+/*function countTime(time) {
   if (time > 0) {
     if (time >= 11) {
       this.tapFlag = false;
@@ -88,6 +85,13 @@ function countTime(time) {
     $("#list-page p").html("タイムアップ！");
     imputName(this.counter);
   }
+}*/
+// 「書く」ボタン押下時の処理
+function toWrite() {
+  //名前入力アラートの表示処理を追加
+  imputName(3);
+  // 記録画面へ遷移
+ // window.location.href = "#ranking-page";
 }
 
 // 名前入力アラートの表示
@@ -106,10 +110,10 @@ function imputName(count) {
   document.gameForm.ranking.disabled = false;
 }
 
-// タップ数カウント
+/*// タップ数カウント
 function tapCount() {
   if (tapFlag) {
     this.counter += 1;
     $("#list-page strong").html(String(this.counter));
   }
-}
+}*/
