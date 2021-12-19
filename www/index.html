@@ -39,9 +39,13 @@
                     <font size="6"><strong>0</strong></font>
                 </div>
                 <center>
-                    
+                    <input type="text" id="data" placeholder="入力">
                     <p>↓書くを押して記録開始↓</p>
-                    <input type="button" value="書く" name="start" onclick="startGame()"/>
+                    <input type="button" value="書く" name="start" onclick="toWrite()"/>
+
+                    <input type="button" value="晴れ" name="start" onclick="toWrite()"/>
+
+                    
                 </center>
             </form>
         </div>           
@@ -61,7 +65,7 @@
                 </div>
                 <table id="rankingTable" border="1" width="90%" cellspacing="1" cellpadding="5">
                     <tr>
-                        <td align="right" nowrap>１位</td>
+                        <td align="right" nowrap>name</td>
                         <td id= "name_1" align="center" width="200">no data</td>
                         <td id= "score_1"align="center" width="150">-</td>
                     </tr>

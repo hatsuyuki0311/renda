@@ -51,16 +51,6 @@ function saveScore(name, score) {
       $("#message").html("Failed to create new object, with error code: " +
         JSON.stringify(err));
     })
-
-
-  
-
-
-
-
-
-
-
   // ********************************************************
 }
 
@@ -88,22 +78,27 @@ function saveScore(name, score) {
 }*/
 // 「書く」ボタン押下時の処理
 function toWrite() {
+   $("#list-page strong").html(String("書く"));
+   var textbox = document.getElementById("data");
+   var value = textbox.value;
+   $("#list-page strong").html(String(value));
   //名前入力アラートの表示処理を追加
-  imputName(3);
+  imputName(value);
   // 記録画面へ遷移
  // window.location.href = "#ranking-page";
 }
 
 // 名前入力アラートの表示
-function imputName(count) {
+function imputName(value) {
   // 入力アラートを表示
-  var name = window.prompt("名前を入力してください", "");
+  //var name = window.prompt("名前を入力してください", "");
+  var name="maeno";
   if (name == null || name == "") {
     $("#list-page p").html("保存がキャンセルされました");
   } else {
     // スコアと入力した名前を保存
-    saveScore(name, count);
-    $("#list-page p").html(name + "さんのスコアは" + String(count) + "連打でした");
+    saveScore(name, value);
+    $("#list-page p").html( String(count) );
   }
   // ボタンの有効化
   document.gameForm.start.disabled = false;
