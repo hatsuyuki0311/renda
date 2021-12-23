@@ -104,14 +104,14 @@ function OnClickedHare() {
   //imputName(value);
 }
 //「くもり☁」ボタン押下時の処理
-function OnClickedHare() {
+function OnClickedKumori() {
    $("#list-page strong").html(String("くもり☁"));
    bool_Kumoribtn= true;
   //名前入力アラートの表示処理を追加
   imputName(value);
 }
 //「雨☂」ボタン押下時の処理
-function OnClickedHare() {
+function OnClickedAme() {
    $("#list-page strong").html(String("雨☂"));
    bool_Amebtn= true;
   //名前入力アラートの表示処理を追加
@@ -119,11 +119,11 @@ function OnClickedHare() {
 }
 
 if(bool_Harebtn == true){
-  var Kibunn="晴れ";
+  var Kibunn="Hare";
 }else if(bool_Kumoribtn == true){
-  var Kibunn="くもり";
+  Kibunn="Ame";
 }else if(bool_Amebtn == true){
-  var Kibunn="雨";
+  Kibunn="Kumori";
 }
 
 // 名前入力アラートの表示
