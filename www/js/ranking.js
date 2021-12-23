@@ -67,8 +67,8 @@ function setData(array) {
   var table = document.getElementById("rankingTable");
   for (i = 0; i < array.length; i++) {
     //選んだ気分の設定予定（名前）
-    var name = table.rows[i].cells[0];
-    name.innerHTML = array[i].name + "";
+    var Kibunn = table.rows[i].cells[0];
+    Kibunn.innerHTML = array[i].Kibunn + "";
     // 日記内容の設定
     var score = table.rows[i].cells[1];
     score.innerHTML = array[i].score + "";

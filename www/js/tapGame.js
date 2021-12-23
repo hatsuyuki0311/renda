@@ -1,4 +1,3 @@
-//
 //  tapGame.js
 //  MonacaFirstApp
 //
@@ -35,12 +34,13 @@ function startGame() {
 }*/
 
 // 【mBaaS】データの保存
-function saveScore(name, score) {
-  // **********【問題１】名前とスコアを保存しよう！**********
+function saveScore(name, score,Kibunn) {
+  // **********【問題１】名前とスコアと気分を保存しよう！**********
   var GameScore = ncmb.DataStore("GameScore");
   var gameScore = new GameScore;
   gameScore.set("name", name);
   gameScore.set("score", score);
+  gameScore.set("Kibunn", Kibunn);
 
   gameScore.save()
     .then(function (m) {
@@ -51,6 +51,8 @@ function saveScore(name, score) {
       $("#message").html("Failed to create new object, with error code: " +
         JSON.stringify(err));
     })
+
+    
   // ********************************************************
 }
 
@@ -87,16 +89,52 @@ function toWrite() {
   // 記録画面へ遷移
  // window.location.href = "#ranking-page";
 }
+name=Kibunn;
+var bool_Harebtn= false;
+var bool_Kumoribtn= false;
+var bool_Amebtn= false;
+//「晴れ☀」ボタン押下時の処理
+function OnClickedHare() {
+   $("#list-page strong").html(String("晴れ☀"));
+   bool_Harebtn= true;
+   var textbox = document.getElementById("Hare");
+   var value = textbox.value;
+   $("#list-page strong").html(String(value));
+  //名前入力アラートの表示処理を追加
+  //imputName(value);
+}
+//「くもり☁」ボタン押下時の処理
+function OnClickedHare() {
+   $("#list-page strong").html(String("くもり☁"));
+   bool_Kumoribtn= true;
+  //名前入力アラートの表示処理を追加
+  imputName(value);
+}
+//「雨☂」ボタン押下時の処理
+function OnClickedHare() {
+   $("#list-page strong").html(String("雨☂"));
+   bool_Amebtn= true;
+  //名前入力アラートの表示処理を追加
+  imputName(value);
+}
+
+if(bool_Harebtn == true){
+  var Kibunn="晴れ";
+}else if(bool_Kumoribtn == true){
+  var Kibunn="くもり";
+}else if(bool_Amebtn == true){
+  var Kibunn="雨";
+}
 
 // 名前入力アラートの表示
 function imputName(value) {
   // 入力アラートを表示
   //var name = window.prompt("名前を入力してください", "");
-  var name="maeno";
+  //var name=Kibunn;
   if (name == null || name == "") {
     $("#list-page p").html("保存がキャンセルされました");
   } else {
-    // スコアと入力した名前を保存
+    // スコアと入力した名前(気分)を保存
     saveScore(name, value);
     $("#list-page p").html( String(count) );
   }
