@@ -97,9 +97,11 @@ var bool_Amebtn= false;
 function OnClickedHare() {
    $("#list-page strong").html(String("晴れ☀"));
    bool_Harebtn= true;
+    bool_Kumoribtn= false;
+    bool_Amebtn= false;
    var textbox = document.getElementById("Hare");
-   var value = textbox.value;
-   $("#list-page strong").html(String(value));
+   /*var value = textbox.value;
+   $("#list-page strong").html(String(value));*/
   //名前入力アラートの表示処理を追加
   //imputName(value);
 }
@@ -107,35 +109,39 @@ function OnClickedHare() {
 function OnClickedKumori() {
    $("#list-page strong").html(String("くもり☁"));
    bool_Kumoribtn= true;
+   bool_Harebtn= false;
+   bool_Amebtn= false;
   //名前入力アラートの表示処理を追加
-  imputName(value);
+  //imputName(value);
 }
 //「雨☂」ボタン押下時の処理
 function OnClickedAme() {
    $("#list-page strong").html(String("雨☂"));
    bool_Amebtn= true;
+   bool_Kumoribtn= false;
+   bool_Harebtn= false;
   //名前入力アラートの表示処理を追加
-  imputName(value);
+  //imputName(value);
 }
 
-if(bool_Harebtn == true){
-  var Kibunn="Hare";
-}else if(bool_Kumoribtn == true){
-  Kibunn="Ame";
-}else if(bool_Amebtn == true){
-  Kibunn="Kumori";
-}
 
 // 名前入力アラートの表示
 function imputName(value) {
   // 入力アラートを表示
   //var name = window.prompt("名前を入力してください", "");
-  //var name=Kibunn;
-  if (name == null || name == "") {
+  var kibunn="Kibunn";
+  if(bool_Harebtn == true){
+    kibunn="晴れ☀";
+  }else if(bool_Kumoribtn == true){
+    kibunn="くもり☁";
+  }else if(bool_Amebtn == true){
+    kibunn="雨☂";
+  }
+  if (kibunn == null || kibunn == "") {
     $("#list-page p").html("保存がキャンセルされました");
   } else {
     // スコアと入力した名前(気分)を保存
-    saveScore(name, value);
+    saveScore("maeno", value,kibunn);
     $("#list-page p").html( String(count) );
   }
   // ボタンの有効化
